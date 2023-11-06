@@ -8,14 +8,15 @@
     <body>
         <div class="container">
             <div class="left">
-                <form>
-                    <label>Wprowadź dzukaną nazwę</label>
-                    <input type="text" id="name" name="name"/>
-                    <label>Wybierz odpowiedni plik</label>
-                    <input type="file" id="file" name="file"/>
-                    <label>Dodatkowe ustawienia</label>
+                <form id="myForm">
+                    <label for="searchingName">Wprowadź dzukaną nazwę</label>
+                    <input type="text" id="searchingName" name="searchingName"/>
+                    <label for="fileToanalyze">Wybierz odpowiedni plik</label>
+                    <input type="file" id="fileToanalyze" name="fileToanalyze"/>
+                    <p>Dodatkowe ustawienia</p>
                     <input type="checkbox" id="sumowanie" name="sumowanie"/>
                     <label for="sumowanie">Sumowanie</label>
+                    <input type="submit" value="Wyślij"/>
                 </form>
             </div>
             <div class="right">
@@ -25,6 +26,18 @@
             </div>
         </div>
 
-        <script type="javascript" src="main.js"></script>
+        <script>  
+            document.getElementById('myForm').addEventListener('submit', function(e){
+                console.log('Start');
+
+                e.preventDefault();
+                let result = document.getElementById('result');
+                let name = document.getElementById('searchingName').value;
+                let file = document.getElementById('fileToanalyze');
+                let sumowanie = document.getElementById('sumowanie');
+
+                console.log(name);
+            });
+        </script>
     </body>
 </html>
