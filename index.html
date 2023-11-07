@@ -26,7 +26,40 @@
             </div>
         </div>
 
-        <script>  
+        <script>
+        
+            function csvToTable(csvContent, searchName) {
+                var rows = csvContent.split('\n').map(function(row) {
+                    return row.split(',');
+                });
+
+                var table = document.createElement('table');
+                var headers = rows.shift();
+
+                if (searchName) {
+                    rows = rows.filter(function(row) {
+                        return row.includes(searchName);
+                    });
+                }
+
+                var headerRow = table.insertRow();
+
+                headers.forEach(function(header) {
+                    var th = document.createElement('th');
+                    th.textContent = header.trim();
+                    headerRow.appendChild(th);
+                });
+
+                rows.forEach(function(cells) {
+                    var row = table.insertRow();
+                    cells.forEach(function(cell) {
+                        var td = row.insertCell();
+                        td.textContent = cell.trim();
+                    });
+                });
+
+                return table;
+            }
             document.getElementById('myForm').addEventListener('submit', function(e){
                 console.log('Start');
 
