@@ -16,6 +16,8 @@
                     <p>Dodatkowe ustawienia</p>
                     <input type="checkbox" id="sumowanie" name="sumowanie"/>
                     <label for="sumowanie">Sumowanie</label>
+                    <input type="checkbox" id="miesiecznyWskaznik" name="miesiecznyWskaznik"/>
+                    <label for="miesiecznyWskaznik">Wskaźnik miesięczny</label>
                     <input type="submit" value="Wyślij"/>
                 </form>
             </div>
@@ -36,8 +38,13 @@
                 var table = document.createElement('table');
                 var headers = rows.shift();
 
+                for(row in rows) {
+                    console.log(row);
+                }
+
                 if (searchName) {
                     rows = rows.filter(function(row) {
+                        console.log(row);
                         return row.includes(searchName);
                     });
                 }
@@ -66,10 +73,36 @@
                 e.preventDefault();
                 let result = document.getElementById('result');
                 let name = document.getElementById('searchingName').value;
-                let file = document.getElementById('fileToanalyze');
+                let fileInput = document.getElementById('fileToanalyze');
                 let sumowanie = document.getElementById('sumowanie');
+                let mountly = document.getElementById('miesiecznyWskaznik');
 
                 console.log(name);
+                console.log(fileInput);
+
+
+                var file = fileInput.files[0];
+                console.log(file);
+                var reader = new FileReader();
+
+                console.log(reader.content)
+            
+                reader.onload = function(e) {
+                    var content = e.target.result;
+                    var table = csvToTable(content, name);
+                
+                    // Add the table to the div
+                    var searchResultDiv = document.getElementById('result');
+                    searchResultDiv.innerHTML = ''; // Clear previous results
+                    searchResultDiv.appendChild(table);
+                };
+            
+                // Read the file as text
+                if (file) {
+                    reader.readAsText(file);
+                } else {
+                    alert('Please select a CSV file.');
+                }
             });
         </script>
     </body>
