@@ -15,6 +15,10 @@ body {
 
 .left {
     width: 40%;
+    background-color: rgb(26, 26, 26);
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 .right {
@@ -25,7 +29,43 @@ body {
 form {
     display: block;
     width: 80%;
-    background-color: rgb(26, 26, 26);
     height: 600px;
-    margin: 0 auto 0 auto;
+    margin: 30px auto 0 auto;
+}
+
+input[type=text], .main-label, p {
+    display: block;
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+.main-label, p {
+    font-size: 25px;
+}
+
+input[type=checkbox] {
+    display: block;
+    width: 15px;
+    height: 15px;;
+}
+
+.subMenuLabel {
+    display: inline-block;
+    width: 100%;
+}
+
+input[type=submit] {
+    display: block;
+    width: 50%;
+    height: 40px;
+    margin: 20px auto 0 auto;
+    background-color: green;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease;
+}
+input[type=submit]:hover {
+    background-color: rgb(2, 195, 2);
+    cursor: pointer;
 }
