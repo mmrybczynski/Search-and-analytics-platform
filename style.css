@@ -19,10 +19,19 @@ body {
     height: 100vh;
     max-height: 100vh;
     overflow: hidden;
+    float: left;
 }
 
 .right {
     width: 60%;
+    float: left;
+}
+
+#result {
+    width: calc(100% - 20px);
+    margin-left: 20px;
+    min-height: 100vh;
+    overflow-y: scroll;
 }
 
 /* Formularz */
