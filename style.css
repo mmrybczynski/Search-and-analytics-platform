@@ -52,13 +52,11 @@ input[type=text], .main-label, p {
 }
 
 input[type=checkbox] {
-    display: block;
     width: 15px;
     height: 15px;;
 }
 
 .subMenuLabel {
-    display: inline-block;
     width: 100%;
 }
 
