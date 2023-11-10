@@ -15,6 +15,6 @@
     fwrite($fp, "sumowanie = $sumowanie\n");
     fclose($fp);
 
-    header('http://localhost:8080/search-and-analitycs-platform/v2/');
+    header('Location: http://localhost:8080/search-and-analitycs-platform/v2/');
 
 ?>
